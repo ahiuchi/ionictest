@@ -1,0 +1,40 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>DetailPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+<ion-item-group>
+  <ion-item-divider color="light">{{ user.type }}</ion-item-divider>
+  <ion-item>
+    <img [src]="user.avatar_url">
+  </ion-item>
+  <ion-item>
+    <div id="Chart{{user.id}}"></div>
+  </ion-item>
+  <!--<ion-item>id : {{ user.id }}</ion-item>-->
+  <!--<ion-item>name : {{ user.login }}</ion-item>-->
+</ion-item-group>
+<ion-item-group>
+  <ion-item-divider color="light">followers</ion-item-divider>
+   <button ion-item *ngFor="let follower of followers" (click)="goToDetailPage(follower)">
+     <ion-avatar item-left>
+       <img [src]="follower.avatar_url">
+     </ion-avatar>
+     <h2>id : {{ follower.id }}</h2>
+     <h2>name : {{ follower.login }}</h2>
+   </button>
+</ion-item-group>
+</ion-list>
+</ion-content>
